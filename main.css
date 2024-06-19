@@ -1,0 +1,158 @@
+:root {
+  --imgwidth: 11.09vh;
+  --imgheight: 8.25vh;
+  --gap: 0.995vh;
+  --biggap: 4.55vh;
+  --biggertext: 9.1vh;
+  --smallertext: 4.55vh;
+
+  overflow: hidden;
+}
+
+body {
+  background-image: url("./background.png");
+  background-size: 30%;
+  margin: 0;
+}
+
+/*Grid*/
+
+#gridcontainer {
+  padding: var(--biggap);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, var(--imgwidth));
+  grid-template-rows: repeat(10, var(--imgheight));
+  grid-column-gap: var(--gap);
+  grid-row-gap: var(--gap);
+  justify-content: center;
+}
+
+.grid > * {
+  overflow: hidden;
+}
+
+.photo {
+  margin: 12.5% 8.5%;
+  height: 75%;
+  width: 83%;
+  object-fit: cover;
+  overflow: hidden;
+
+  visibility: hidden;
+}
+
+.frame {
+  background-image: url("./frame.png");
+  background-size: contain;
+  position: relative;
+  top: -8.8vh;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  transition: all 0.2s;
+}
+
+.frame:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.photoGridCell {
+  height: 75%;
+  width: 83%;
+  overflow: hidden;
+  margin: 10%;
+}
+
+.photoGridCell:hover {
+  cursor: pointer;
+}
+
+#jmenoDatum {
+  grid-area: 4 / 3 / 6 / 8;
+  background-color: transparent;
+  border: none;
+  color: black;
+  display: block;
+  font-family: "Parisienne";
+  font-weight: bold;
+  visibility: hidden;
+  background-image: none;
+}
+
+.jmeno {
+  font-size: var(--biggertext);
+  margin: 0;
+  text-align: center;
+}
+
+.datum {
+  font-size: var(--smallertext);
+  margin: 0;
+  text-align: center;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalPhoto {
+  width: 70%;
+  height: 90%;
+  margin: 0;
+  z-index: 15;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalPhoto img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  z-index: 15;
+}
+button {
+  all: unset;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.modalbutton {
+  width: 10vh;
+  height: 10vh;
+  visibility: visible;
+  margin: 3vh;
+
+  background: #ffffff;
+  background-image: linear-gradient(to bottom, #ffffff, #e8f6ff);
+  border-radius: 50%;
+  box-shadow: 0px 1px 4px #dbdbdb;
+  font-size: 4vh;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modalbutton:hover {
+  background: #e8f6ff;
+  font-size: 5vh;
+  background-image: linear-gradient(to bottom, #e8f6ff, #ffffff);
+}
